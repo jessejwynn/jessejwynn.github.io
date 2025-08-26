@@ -1,0 +1,16 @@
+/* Background canvas sits behind everything */
+#bg-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;           /* behind your site */
+    pointer-events: none;  /* clicks pass through */
+  }
+  
+  /* Respect users who prefer less motion */
+  @media (prefers-reduced-motion: reduce) {
+    #bg-canvas { display: none; }
+    body { background: #0b1220; } /* simple fallback */
+  }
+  

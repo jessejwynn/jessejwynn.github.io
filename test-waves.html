@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wave BG Test</title>
+  <style>
+    html,body{height:100%;margin:0;background:transparent}
+    /* Canvas behind content (not hidden) */
+    #bg3d{position:fixed;inset:0;z-index:0;pointer-events:none}
+    /* Your content sits above it */
+    .main{position:relative;z-index:1;padding:4rem;font:16px/1.5 system-ui}
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h1>Hello 👋</h1>
+    <p>You should see soft moving waves behind this text.</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Scene
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xefe7de);
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 100);
+    camera.position.set(0, 1.2, 6);
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+    renderer.setSize(innerWidth, innerHeight);
+    renderer.domElement.id = "bg3d";
+    document.body.appendChild(renderer.domElement);
+
+    // Cloth-like plane
+    const geom = new THREE.PlaneGeometry(16, 9, 200, 120);
+    const mat  = new THREE.MeshStandardMaterial({ color: 0xf3eee7, roughness: 0.95, metalness: 0 });
+    const mesh = new THREE.Mesh(geom, mat);
+    mesh.rotation.x = -0.35;
+    scene.add(mesh);
+
+    // Lights
+    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+    const dir = new THREE.DirectionalLight(0xffffff, 0.6);
+    dir.position.set(-1, 1, 1);
+    scene.add(dir);
+
+    // Animate vertices
+    const pos  = geom.attributes.position;
+    const base = pos.array.slice();
+    function frame(tms){
+      const t = tms * 0.001;
+      for (let i=0;i<pos.count;i++){
+        const i3=i*3, x=base[i3], z=base[i3+2];
+        pos.array[i3+1] =
+          0.35*Math.sin(x*0.9 + t*0.8) +
+          0.20*Math.sin((x+z)*0.6 - t*0.5) +
+          0.15*Math.cos(z*1.2 + t*0.9);
+      }
+      pos.needsUpdate = true;
+      geom.computeVertexNormals();
+      renderer.render(scene, camera);
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+
+    // Resize
+    addEventListener("resize", () => {
+      renderer.setSize(innerWidth, innerHeight);
+      camera.aspect = innerWidth/innerHeight;
+      camera.updateProjectionMatrix();
+    });
+  </script>
+</body>
+</html>
