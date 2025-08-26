@@ -1,3 +1,4 @@
+
 /* Background canvas sits behind everything */
 #bg-canvas {
     position: fixed;
@@ -11,6 +12,16 @@
   /* Respect users who prefer less motion */
   @media (prefers-reduced-motion: reduce) {
     #bg-canvas { display: none; }
-    body { background: #0b1220; } /* simple fallback */
+    body { background: white; } /* simple fallback */
   }
   
+/* Canvas behind, content above */
+#bg3d { position: fixed; inset: 0; z-index: 0 !important; pointer-events: none; }
+header, main, section, footer { position: relative; z-index: 1; }
+
+/* Page color on <html>; keep <body> transparent so canvas shows */
+html  { background: #ede1d4 !important; }
+body  { background: transparent !important; }
+
+
+
