@@ -8,17 +8,7 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root { --fg:#0f172a; --muted:#475569; --card:#f8fafc; }
-    *{box-sizing:border-box} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:var(--fg);background:var(--bg)}
-    header{padding:48px 20px;max-width:960px;margin:auto}
-    h1{margin:0 0 8px;font-size:clamp(28px,4vw,40px)} p{color:var(--muted);margin:0}
-    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding:0 20px 40px;max-width:960px;margin:auto}
-    .card{background:var(--card);padding:20px;border-radius:16px;border:1px solid #e2e8f0}
-    .card h3{margin:0 0 8px}
-    footer{padding:24px 20px;border-top:1px solid #e2e8f0;text-align:center;color:var(--muted)}
-    a{color:inherit} .btn{display:inline-block;padding:10px 14px;border:1px solid #0ea5e9;border-radius:10px}
-  </style>
+  
 </head>
 <body>
   <header>
@@ -49,7 +39,11 @@
   <footer>© <span id="y"></span> Jesse Wynn</footer>
   <script>document.getElementById("y").textContent=new Date().getFullYear()</script>
 
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="assets/js/waves.js" defer></script> -->
+
+  <!-- Add P5.js before your waves script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <script src="assets/js/waves.js" defer></script>
+  <script src="assets/js/waves-2.js" defer></script>
 </body>
 </html>
