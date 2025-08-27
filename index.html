@@ -11,7 +11,7 @@
   
 </head>
 <body>
-  <header>
+  <!-- <header>
     <h1>Jesse Wynn</h1>
     <p>Full-stack Developer • Tech stack • Jakarta</p>
     <p style="margin-top:16px">
@@ -19,9 +19,9 @@
       <a class="btn" href="https://github.com/jesse-wynn">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/jesse-wynn">LinkedIn</a>
     </p>
-  </header>
+  </header> -->
 
-  <section class="grid">
+  <!-- <section class="grid">
     <article class="card">
       <h3>Project One</h3>
       <p>One-line impact statement. <a href="#">Demo</a> • <a href="#">Code</a></p>
@@ -34,9 +34,42 @@
       <h3>Project Three</h3>
       <p>Tech used + your role. <a href="#">Demo</a> • <a href="#">Code</a></p>
     </article>
-  </section>
+  </section> -->
 
-  <footer>© <span id="y"></span> Jesse Wynn</footer>
+  <header class="nav">
+    <a href="#/">Home</a>
+    <a href="#/projects">Projects</a>
+    <a href="#/about">About</a>
+    <a href="#/contact">Contact</a>
+  </header>
+
+  <main id="views">
+    <section data-route="/" class="view active" id="home">
+      <h1 id="myname">Jesse Wynn</h1>
+      <p id="myrole">Full-stack Developer • Tech stack • Jakarta</p>
+      <p id="mybio">
+        Born and raised in Indonesia, I am a passionate full-stack developer with a knack for creating efficient and scalable web applications. With a strong foundation in both front-end and back-end technologies, I thrive in dynamic environments where I can contribute to innovative projects.
+      </p>
+    </section>
+    <section data-route="/projects" class="view">
+      <article class="card">
+        <h3>Project One</h3>
+        <p>One-line impact statement. <a href="#">Demo</a> • <a href="#">Code</a></p>
+      </article>
+      <article class="card">
+        <h3>Project Two</h3>
+        <p>What you built, why it matters. <a href="#">Demo</a> • <a href="#">Code</a></p>
+      </article>
+      <article class="card">
+        <h3>Project Three</h3>
+        <p>Tech used + your role. <a href="#">Demo</a> • <a href="#">Code</a></p>
+      </article>
+    </section>
+    <section data-route="/about" class="view">…about…</section>
+    <section data-route="/contact" class="view">…contact…</section>
+  </main>
+
+  <!-- <footer>© <span id="y"></span> Jesse Wynn</footer> -->
   <script>document.getElementById("y").textContent=new Date().getFullYear()</script>
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
@@ -45,5 +78,6 @@
   <!-- Add P5.js before your waves script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
   <script src="assets/js/waves-2.js" defer></script>
+  <script src="assets/js/spa-hash.js" defer></script>
 </body>
 </html>
