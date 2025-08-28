@@ -146,7 +146,7 @@ border-radius: 10px;
 }
 
 #myrole {
-    font-size: clamp(16px,3vw,24px);
+    font-size: clamp(12px,3vw,24px);
     font-family: 'Garamond', serif;
     font-weight: lighter;
     margin: 0;
@@ -169,4 +169,16 @@ border-radius: 10px;
     position: absolute;
     bottom: 1rem;
     right: 1rem;
+
+}
+
+.nav {
+  font-size: clamp(10px,2.5vw,20px);
+  font-family: 'Helvetica', sans-serif;
+  font-weight: lighter;
+  text-align: right;
+  justify-content: right;
+
+  color: #86765B;
+  opacity: 0.95;
 }
