@@ -113,7 +113,8 @@ border-radius: 10px;
     align-items: left;
     height: 60vh;
     text-align: left;
-    margin: 10vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
 
 }
 
@@ -121,7 +122,8 @@ border-radius: 10px;
     font-size: clamp(40px,8vw,80px);
     font-family: 'Garamond', serif;
     font-weight: lighter;
-    margin: 0;
+    /* margin: 0; */
+    margin-top: 4vh;
     margin-bottom: 1vw;
     line-height: 1;
     color: #695A40;
@@ -144,23 +146,25 @@ border-radius: 10px;
     font-weight: normal;
     text-align: right;
     
-    margin-top: 10px;
+    /* margin-top: ; */
+    /* margin-right: 2vw; */
     max-width: 500px;
     line-height: 1.6;
     color: #86765B;
     opacity: 0.95;
 
     position: absolute;
-    bottom: 1rem;
+    bottom: -5rem;
     right: 1rem;
 
 }
 
 .nav {
-  font-size: clamp(15px,2.5vw,22px);
+  font-size: clamp(13px,2.5vw,22px);
   font-family: 'Helvetica', sans-serif;
   font-weight: lighter;
   text-align: right;
+  margin-right: 5%;
   justify-content: right;
 
   color: #86765B;
@@ -239,4 +243,17 @@ border-radius: 10px;
 .card *{
   overflow-wrap: anywhere;         /* long tokens won't bust the card */
   max-width: 100%;
+}
+
+
+ /* About  */
+
+#aboutme {
+    font-size: clamp(28px,4vw,40px);
+    font-family: 'Garamond', serif;
+    font-weight: lighter;
+    margin: 10vh 0 8px 10vw;
+    color: #695A40;
+    opacity: 0.75;
+    text-shadow: #c5bcae 3px 1px 2px;   
 }
