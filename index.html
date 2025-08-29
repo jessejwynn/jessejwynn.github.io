@@ -75,12 +75,48 @@
       <h1 id="aboutme">About me</h1>
 
     </section>
-    <section data-route="/contact" class="view">
-      <p style="margin-top:16px">
+    <section data-route="/contact" class="view" id="contact">
+      <!-- <p style="margin-top:16px">
         <a class="btn" href="mailto:jessejwynn@gmail.com">Contact</a>
         <a class="btn" href="https://github.com/jesse-wynn">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/jesse-wynn">LinkedIn</a>
-      </p>
+      </p> -->
+      <div class="contact-wrap container">
+        <header class="contact-hero">
+          <h1 id="contact-title">Contact Me</h1>
+          <!-- <span class="dot">.</span> -->
+          <p class="lead" id="contact-subheading">
+            Get in touch or shoot me an email directly at
+            <a class="email" href="mailto:your@email.com">jessejwynn@email.com</a>
+          </p>
+        </header>
+    
+        <!-- Replace the action with your Formspree endpoint -->
+        <form id="contact-form"
+              action="https://formspree.io/f/yourFormId"
+              method="POST"
+              class="contact-form"
+              novalidate>
+          <!-- honeypot (spam trap) -->
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    
+          <label for="c-name">Name</label>
+          <input id="c-name" name="name" required placeholder="Your name">
+    
+          <label for="c-email">Email</label>
+          <input id="c-email" name="email" type="email" required placeholder="youremail@domain.com">
+    
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" name="message" rows="6" required placeholder="..."></textarea>
+    
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Send Message</button>
+            <a class="btn-ghost" href="mailto:your@email.com">Or email me</a>
+          </div>
+    
+          <p class="form-alert" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
   </main>
 
