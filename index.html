@@ -87,13 +87,13 @@
           <!-- <span class="dot">.</span> -->
           <p class="lead" id="contact-subheading">
             Get in touch or shoot me an email directly at
-            <a class="email" href="mailto:your@email.com">jessejwynn@email.com</a>
+            <a class="email" href="mailto:jessejwynn@email.com">jessejwynn@email.com</a>
           </p>
         </header>
     
         <!-- Replace the action with your Formspree endpoint -->
         <form id="contact-form"
-              action="https://formspree.io/f/yourFormId"
+              action="https://formspree.io/f/mdklgoke"
               method="POST"
               class="contact-form"
               novalidate>
@@ -111,7 +111,7 @@
     
           <div class="form-actions">
             <button type="submit" class="btn-primary">Send Message</button>
-            <a class="btn-ghost" href="mailto:your@email.com">Or email me</a>
+            <a class="btn-ghost" href="mailto:jessejwynn@email.com">Or email me</a>
           </div>
     
           <p class="form-alert" role="status" aria-live="polite"></p>
@@ -130,5 +130,37 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
   <script src="assets/js/waves-2.js" defer></script>
   <script src="assets/js/spa-hash.js" defer></script>
+
+  <script>
+    (() => {
+      const form = document.getElementById('contact-form');
+      if (!form) return;
+      const alertBox = form.querySelector('.form-alert');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submit = form.querySelector('button[type="submit"]');
+        submit.disabled = true;
+        alertBox.textContent = 'Sending…';
+        try{
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok){
+            alertBox.textContent = 'Thanks! I’ll get back to you shortly.';
+            form.reset();
+          }else{
+            alertBox.textContent = 'Sorry, something went wrong. Please try again or email me.';
+          }
+        }catch(err){
+          alertBox.textContent = 'Network error. Please try again or email me.';
+        }finally{
+          submit.disabled = false;
+        }
+      });
+    })();
+    </script>
+    
 </body>
 </html>
